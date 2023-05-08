@@ -30,7 +30,7 @@ mediaV:     .float 0.0
 valorMedia:      .float 4.0
 
     .text
-	.global main
+	.global inicio_programa
 
 ; -------------------- ;
 ; Registros utilizados ;
