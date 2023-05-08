@@ -59,7 +59,6 @@ bucle_fibonacci:
     addi r1, r1, #4      ; Movemos la posición efectiva de vector
 
     addf f3, f1, f4      ; Calculamos el siguiente valor = actual + anterior
-
     addf f2, f2, f3      ; Calculamos la suma = suma + valor
     addf f4, f1, f0      ; Guardamos el valor anterior en f4
     addf f1, f3, f0      ; Guardamos el valor siguiente en f1
@@ -141,8 +140,8 @@ fin_bucle:
     ; Calculo de la media
     ; mediaV = (v11 + v12 + v21 + v22) /4 = (f17 + f18 + f19 + f20) / 4 = (f24 + f25) / 4 = f26 / f15
     addi r8, r0, mediaV
-    addf f24, f16, f17  ; f24 = (v11 + v12)
-    addf f25, f18, f19  ; f25 = (v21 + v22)
+    addf f24, f17, f18  ; f24 = (v11 + v12)
+    addf f25, f19, f20  ; f25 = (v21 + v22)
     addf f26, f24, f25  ; f26 = (f24 + f25)
     divf f27, f26, f15  ; f27 = f26 / 4
     sf 0(r8), f27       ; Guardamos el valor de la media en el registro de la variable mediaV
