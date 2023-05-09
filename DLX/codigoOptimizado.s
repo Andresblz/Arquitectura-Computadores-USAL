@@ -83,6 +83,7 @@ fibonacci:
     addf f1, f3, f0
     addf f2, f2, f3
 
+    addf f5, f3, f0
     addi r7, r0, detV
 
     addf f3, f1, f4 
@@ -91,17 +92,24 @@ fibonacci:
     addf f1, f3, f0
     addf f2, f2, f3
 
+    addf f6, f3, f0
+    addi r8, r0, mediaV
+
     addf f3, f1, f4 
     addf f4, f1, f0
     sf 24(r1), f3       ; 6
     addf f1, f3, f0
     addf f2, f2, f3
 
+    addf f7, f3, f0
     addf f3, f1, f4
     addf f4, f1, f0
     sf 28(r1), f3       ; 7 
     addf f1, f3, f0
     addf f2, f2, f3
+
+    multf f10, f6, f7
+    addf f8, f3, f0
 
     addf f3, f1, f4 
     addf f4, f1, f0
@@ -114,6 +122,8 @@ fibonacci:
     sf 36(r1), f3       ; 9
     addf f1, f3, f0
     addf f2, f2, f3
+
+    multf f9, f5, f8
 
     subi r2, r2, 10
     beqz r2, fin_fibonacci
@@ -250,30 +260,29 @@ fibonacci:
     
 fin_fibonacci:
     sf suma, f2         
-      
-    addi r1, r0, vector
-    lf f5, 12(r1)
-    lf f8, 24(r1)        
-    lf f6, 16(r1)       
-    lf f7, 20(r1)        
-  
-    multf f9, f5, f8    
-    sf 0(r3), f5
-    sf 4(r3), f6
-    sf 8(r3), f7
-    sf 12(r3), f8
-    multf f10, f6, f7   
-    subf f11, f9, f10
-    divf f17, f5, f11   
-          
+     
     addf f12, f5, f6    
     addf f13, f7, f8    
-    addf f14, f12, f13  
-    divf f16, f14, f15  
+    subf f11, f9, f10
+
+    divf f17, f5, f11
+    addf f14, f12, f13 
+
+    sf 0(r3), f5
+    sf 4(r3), f6
+       
+    divf f16, f14, f15 
+
+    sf 8(r3), f7
+    sf 12(r3), f8 
        
     divf f18, f6, f11  
-    divf f19, f7, f11   
-    divf f20, f8, f11   
+    divf f19, f7, f11
+
+    divf f20, f8, f11 
+
+    addf f24, f17, f18  
+    addf f25, f19, f20  
 
     multf f21, f17, f20 
     sf 0(r6), f17
@@ -282,11 +291,9 @@ fin_fibonacci:
     sf 12(r6), f20
     multf f22, f18, f19 
       
-    addi r8, r0, mediaV
-    addf f24, f17, f18  
-    addf f25, f19, f20  
     addf f26, f24, f25
     divf f27, f26, f15
+
     subf f23, f21, f22
     sf 0(r5), f16
     sf 0(r4), f11  
