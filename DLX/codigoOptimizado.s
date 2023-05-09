@@ -260,11 +260,11 @@ fibonacci:
     
 fin_fibonacci:
     sf suma, f2         
-     
-    addf f12, f5, f6    
-    addf f13, f7, f8    
+    
     subf f11, f9, f10
-
+    addf f12, f5, f6    
+    addf f13, f7, f8
+    
     divf f17, f5, f11
     addf f14, f12, f13 
 
