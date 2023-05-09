@@ -74,7 +74,7 @@ fin_bucle:
     ; -------------------------- ;
     addi r3, r0, M       ; Inicializamos la primera posicion de M
     addi r1, r0, vector  ; Reiniciamos el vector en r1 para poder desplazarnos hasta vector[5]
-    addi r1, r1, #12     ; Nos movemos hasta la posición efectiva de vector[5]
+    addi r1, r1, #16     ; Nos movemos hasta la posición efectiva de vector[5]
     lf f5, 0(r1)         ; f5 = vector[5]
     addi r1, r1, #4
     lf f6, 0(r1)         ; f6 = vector[6]
