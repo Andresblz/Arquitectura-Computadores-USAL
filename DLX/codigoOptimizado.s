@@ -94,6 +94,7 @@ fibonacci:
 
     addf f6, f3, f0
     addi r8, r0, mediaV
+    addf f12, f5, f6
 
     addf f3, f1, f4 
     addf f4, f1, f0
@@ -102,6 +103,7 @@ fibonacci:
     addf f2, f2, f3
 
     addf f7, f3, f0
+
     addf f3, f1, f4
     addf f4, f1, f0
     sf 28(r1), f3       ; 7 
@@ -259,44 +261,33 @@ fibonacci:
 
     
 fin_fibonacci:
-    sf suma, f2         
-    
+    sf suma, f2
+      
     subf f11, f9, f10
-    addf f12, f5, f6    
-    addf f13, f7, f8
-    
     divf f17, f5, f11
-    addf f14, f12, f13 
-
-    sf 0(r3), f5
-    sf 4(r3), f6
-       
-    divf f16, f14, f15 
-
+    addf f13, f7, f8 
     sf 8(r3), f7
-    sf 12(r3), f8 
-       
-    divf f18, f6, f11  
+    sf 4(r3), f6
+    addf f14, f12, f13  
+    divf f16, f14, f15
+    sf 0(r3), f5
+    sf 12(r3), f8   
+    divf f18, f6, f11
     divf f19, f7, f11
-
     divf f20, f8, f11 
-
     addf f24, f17, f18  
-    addf f25, f19, f20  
-
-    multf f21, f17, f20 
-    sf 0(r6), f17
-    sf 4(r6), f18
+    addf f25, f19, f20 
+    multf f21, f17, f20
+    addf f26, f24, f25 
     sf 8(r6), f19
     sf 12(r6), f20
     multf f22, f18, f19 
-      
-    addf f26, f24, f25
+    sf 0(r6), f17
+    sf 4(r6), f18
     divf f27, f26, f15
-
-    subf f23, f21, f22
     sf 0(r5), f16
     sf 0(r4), f11  
+    subf f23, f21, f22
     sf 0(r7), f23
     sf 0(r8), f27
 
