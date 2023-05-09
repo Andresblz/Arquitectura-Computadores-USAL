@@ -48,53 +48,197 @@ inicio_programa:
     lf f1, valor_inicial 
     lf f2, suma          
 
-bucle_fibonacci:
-    sf 0(r1), f3        
-    addi r1, r1, 4
+fibonacci:
+    sf 0(r1), f3      ; 0 
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 4(r1), f3       ; 1
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 8(r1), f3       ; 2
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 12(r1), f3       ; 3
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 16(r1), f3       ; 4
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 20(r1), f3       ; 5
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 24(r1), f3       ; 6
+    addf f1, f3, f0
+    addf f2, f2, f3
 
     addf f3, f1, f4
-    addf f2, f2, f3
     addf f4, f1, f0
+    sf 28(r1), f3       ; 7 
     addf f1, f3, f0
+    addf f2, f2, f3
 
-    sf 0(r1), f3         
-    addi r1, r1, 4      
-
-    addf f3, f1, f4      
-    addf f2, f2, f3      
-    addf f4, f1, f0      
-    addf f1, f3, f0     
-
-    sf 0(r1), f3         
-    addi r1, r1, 4      
-
-    addf f3, f1, f4      
-    addf f2, f2, f3      
-    addf f4, f1, f0      
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 32(r1), f3       ; 8
     addf f1, f3, f0
+    addf f2, f2, f3
 
-    sf 0(r1), f3         
-    addi r1, r1, 4      
-
-    addf f3, f1, f4      
-    addf f2, f2, f3      
-    addf f4, f1, f0      
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 36(r1), f3       ; 9
     addf f1, f3, f0
+    addf f2, f2, f3
 
-    subi r2, r2, #5
-    beqz r2, fin_bucle
+    subi r2, r2, 10
+    beqz r2, fin_fibonacci
 
-    sf 0(r1), f3         
-    addi r1, r1, 4      
-
-    addf f3, f1, f4      
-    addf f2, f2, f3      
-    addf f4, f1, f0      
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 40(r1), f3       ; 10
     addf f1, f3, f0
+    addf f2, f2, f3
 
-    j bucle_fibonacci
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 44(r1), f3       ; 11
+    addf f1, f3, f0
+    addf f2, f2, f3
 
-fin_bucle:
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 48(r1), f3       ; 12
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 52(r1), f3       ; 13
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 56(r1), f3       ; 14
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    subi r2, r2, 5
+    beqz r2, fin_fibonacci
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 60(r1), f3       ; 15
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 64(r1), f3       ; 16
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 68(r1), f3       ; 17
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 72(r1), f3       ; 18
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 76(r1), f3       ; 19
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    subi r2, r2, 5
+    beqz r2, fin_fibonacci
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 80(r1), f3       ; 20
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 84(r1), f3       ; 21
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 88(r1), f3       ; 22
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 92(r1), f3       ; 23
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 96(r1), f3       ; 24
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    subi r2, r2, 5
+    beqz r2, fin_fibonacci
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 100(r1), f3       ; 25
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 104(r1), f3       ; 26
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 108(r1), f3       ; 27
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 112(r1), f3       ; 28
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    addf f3, f1, f4 
+    addf f4, f1, f0
+    sf 116(r1), f3       ; 29
+    addf f1, f3, f0
+    addf f2, f2, f3
+
+    
+fin_fibonacci:
     sf suma, f2         
 
     addi r3, r0, M       
@@ -142,8 +286,8 @@ fin_bucle:
     subf f23, f21, f22
     sf 0(r5), f16
     sf 0(r4), f11  
-    sf 0(r8), f27
     sf 0(r7), f23
+    sf 0(r8), f27
 
 fin_programa:
     trap 0
