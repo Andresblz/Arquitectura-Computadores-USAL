@@ -51,11 +51,15 @@ inicio_programa:
 fibonacci:
     sf 0(r1), f3      ; 0 
 
-    addf f3, f1, f4 
+    addf f3, f1, f4
+    lf f15, valorMedia
+    addi r3, r0, M
+    sf 4(r1), f3       ; 1 
     addf f4, f1, f0
-    sf 4(r1), f3       ; 1
     addf f1, f3, f0
     addf f2, f2, f3
+
+    addi r4, r0, detM
 
     addf f3, f1, f4 
     addf f4, f1, f0
@@ -63,17 +67,23 @@ fibonacci:
     addf f1, f3, f0
     addf f2, f2, f3
 
+    addi r5, r0, mediaM
+
     addf f3, f1, f4 
     addf f4, f1, f0
     sf 12(r1), f3       ; 3
     addf f1, f3, f0
     addf f2, f2, f3
 
+    addi r6, r0, V
+
     addf f3, f1, f4 
     addf f4, f1, f0
     sf 16(r1), f3       ; 4
     addf f1, f3, f0
     addf f2, f2, f3
+
+    addi r7, r0, detV
 
     addf f3, f1, f4 
     addf f4, f1, f0
@@ -225,34 +235,28 @@ fibonacci:
     addf f1, f3, f0
     addf f2, f2, f3
 
-    addf f3, f1, f4 
+    addf f3, f1, f4
     addf f4, f1, f0
     sf 112(r1), f3       ; 28
     addf f1, f3, f0
     addf f2, f2, f3
 
-    addf f3, f1, f4 
+    addf f3, f1, f4
     addf f4, f1, f0
-    sf 116(r1), f3       ; 29
+    sf 116(r1), f3       ; 29 
     addf f1, f3, f0
     addf f2, f2, f3
 
     
 fin_fibonacci:
     sf suma, f2         
-
-    addi r3, r0, M       
+      
     addi r1, r0, vector
-    lf f15, valorMedia
-    addi r4, r0, detM
-    addi r5, r0, mediaM
-    addi r6, r0, V
-    addi r7, r0, detV  
-    lf f5, 12(r1)        
+    lf f5, 12(r1)
+    lf f8, 24(r1)        
     lf f6, 16(r1)       
     lf f7, 20(r1)        
-    lf f8, 24(r1)        
-
+  
     multf f9, f5, f8    
     sf 0(r3), f5
     sf 4(r3), f6
